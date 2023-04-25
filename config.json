@@ -3,9 +3,39 @@
 	  {
 		  "name": "input_image",
 		  "type" : "image",
-		  "description" : "example",
+		  "description" : "Path to an image",
 		  "default" : "https://bucketeer-be99e627-94e7-4e5b-a292-54eeb40ac303.s3.amazonaws.com/public/models_models_cover_image/8faf1a87-e796-4ee5-83e1-385184220187/Screenshot_from_2022-06-17_13-12-.png"
-	  }
+	  },
+      {
+        "name" : "model_name",
+        "type" : "str",
+        "default" : "yolox-s",
+        "description" : "Model name",
+        "optional" : {
+            "choices" : ["yolox-s", "yolox-m", "yolox-l", "yolox-x"]
+        }
+
+      },
+      {
+        "name" : "conf",
+        "type" : "float",
+        "default" : 0.3,
+        "description" : "Confidence threshold: Only detections with confidence higher are kept (maximum: 1)",
+        "optional" : {
+            "ge" : 0,
+            "le" : 1
+        }
+      },
+      {
+        "name" : "nms",
+        "type" : "float",
+        "default" : 0.3,
+        "description" : "NMS threshold: NMS removes redundant detections. Detections with overlap percentage (IOU) above this threshold are consider redundant to each other and only one of them will be kept (maximum: 1)",
+        "optional" : {
+            "ge" : 0,
+            "le" : 1
+        }
+      }
   ],
 	"output" : 
 	   {
